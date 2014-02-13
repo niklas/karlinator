@@ -5,6 +5,10 @@ puts "Karlinator"
 module Actions
   def self.run(action)
     puts "#{action}..."
+    load_action action
+  end
+
+  def self.load_action(action)
     load "actions/#{action}.rb"
   end
 end
