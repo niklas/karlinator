@@ -1,25 +1,18 @@
-puts "Word list"
+Actions.load_action 'texts'
 
-files = ARGV
+word_count = Hash.new { |h,k| h[k] = 0 }
 
-require 'yomu'
-
-count = Hash.new { |h,k| h[k] = 0 }
-
-files.each do |file|
-  yomu = Yomu.new file
-  text = yomu.text
-
+@texts.each do |text|
   text.scan(/\p{Letter}+/i) do |word|
     if word.length > 2
-      count[word] += 1
+      word_count[word] += 1
     end
   end
 end
 
-sorted = count.sort_by { |word, count| count }
+sorted = word_count.sort_by { |word, count| count }
 
-sorted.each do |word, count|
+sorted.last(23).each do |word, count|
   puts "%7d %s" % [count, word]
 end
 
