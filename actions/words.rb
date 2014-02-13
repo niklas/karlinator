@@ -12,7 +12,7 @@ end
 
 sorted = word_count.sort_by { |word, count| count }
 
-sorted.last(23).each do |word, count|
+sorted.last(23).reverse.each do |word, count|
   puts "%7d %s" % [count, word]
 end
 

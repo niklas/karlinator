@@ -11,6 +11,16 @@ module Actions
   def self.load_action(action)
     load "actions/#{action}.rb"
   end
+
+  def self.progressbar(title, total)
+    bar = ProgressBar.create(
+      :format         => '%a |%b>>%i| %p%% %t',
+      :total          => total,
+      :title          => title
+    )
+    yield bar
+    bar.finish
+  end
 end
 
 Actions.run ARGV.shift
