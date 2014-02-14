@@ -14,7 +14,7 @@ module Actions
 
   def self.progressbar(title, total)
     bar = ProgressBar.create(
-      :format         => '%a |%b>>%i| %p%% %t',
+      :format         => '%e |%b>>%i| %p%% %t',
       :total          => total,
       :title          => title
     )
