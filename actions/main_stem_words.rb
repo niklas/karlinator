@@ -9,6 +9,7 @@ stemmer = Lingua::Stemmer.new(:language => "de", :encoding => "UTF-8")
 
 @texts.each do |text|
   text.scan(/\p{Letter}+/i) do |word|
+    word = word.downcase
     if word.length > 2 and !stop_words.include?(word)
       word_count[stemmer.stem(word)] += 1
     end
