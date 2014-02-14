@@ -1,3 +1,4 @@
+Actions.load_action 'main_stem_words'
 
 def processing(sketch)
   path = File.expand_path "../../processing/#{sketch}", __FILE__
@@ -10,3 +11,5 @@ def processing(sketch)
 end
 
 processing 'wordcram'
+
+# bin/run processing /media/niklas/Spinn/Archive/karl_hecht/Werke/Schlafprofile/*

@@ -23,4 +23,24 @@ module Actions
   end
 end
 
+class Tee
+  def initialize(file)
+    @file = file
+  end
+  def puts(text)
+    STDOUT.puts text
+    @file.puts text
+  end
+  def word(word, count)
+    STDOUT.puts "%7d %s" % [count, word]
+    @file.puts "%s:%d" % [word, count]
+  end
+end
+
+def write(name)
+  File.open "var/#{name}.txt", 'w' do |file|
+    yield Tee.new(file)
+  end
+end
+
 Actions.run ARGV.shift
