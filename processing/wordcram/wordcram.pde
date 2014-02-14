@@ -32,7 +32,7 @@ WordCram wordcram = new WordCram(this)
 
 // Pass in the words to draw.
   .fromWords(wordArray)
-  .angledAt(radians(30), radians(30), radians(-60))
+//.angledAt(radians(30), radians(30), radians(-60))
   .withFont(font)
 
   ;
