@@ -7,6 +7,8 @@ stop_words = File.read('db/stop_words_de.txt').scan(/\p{Letter}+/i)
 stop_words += File.read('db/stop_words_en.txt').scan(/\p{Letter}+/i)
 stemmer = Lingua::Stemmer.new(:language => "de", :encoding => "UTF-8")
 
+stop_words += stop_words.map { |w| stemmer.stem(w) }
+
 @texts.each do |text|
   text.scan(/\p{Letter}+/i) do |word|
     word = word.downcase
