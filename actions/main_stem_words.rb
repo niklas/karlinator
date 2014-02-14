@@ -11,9 +11,9 @@ stop_words += stop_words.map { |w| stemmer.stem(w) }
 
 @texts.each do |text|
   text.scan(/\p{Letter}+/i) do |word|
-    word = word.downcase
-    if word.length > 2 and !stop_words.include?(word)
-      word_count[stemmer.stem(word)] += 1
+    clean = stemmer.stem( word.strip.downcase )
+    if clean.length > 2 and !stop_words.include?(clean)
+      word_count[clean] += 1
     end
   end
 end
