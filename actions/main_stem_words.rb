@@ -4,6 +4,7 @@ require 'lingua/stemmer'
 word_count = Hash.new { |h,k| h[k] = 0 }
 
 stop_words = File.read('db/stop_words_de.txt').scan(/\p{Letter}+/i)
+stop_words += File.read('db/stop_words_en.txt').scan(/\p{Letter}+/i)
 stemmer = Lingua::Stemmer.new(:language => "de", :encoding => "UTF-8")
 
 @texts.each do |text|
