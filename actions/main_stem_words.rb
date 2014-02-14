@@ -17,8 +17,8 @@ end
 sorted = word_count.sort_by { |word, count| count }
 
 write 'word_count' do |f|
-  sorted.last(23).reverse.each do |word, count|
+  sorted.reverse.each do |word, count|
     f.word word, count
   end
-end
+end unless sorted.empty?
 
