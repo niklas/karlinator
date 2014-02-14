@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 size(1920, 1080);
 background(255);
+PFont font = createFont("Georgia Italic", 1);
 
 BufferedReader reader;
 String line;
@@ -30,7 +31,11 @@ wordList.toArray( wordArray );
 WordCram wordcram = new WordCram(this)
 
 // Pass in the words to draw.
-  .fromWords(wordArray);
+  .fromWords(wordArray)
+  .angledAt(radians(30), radians(30), radians(-60))
+  .withFont(font)
+
+  ;
 
 // Now we've created our WordCram, we can draw it:
 wordcram.drawAll();
