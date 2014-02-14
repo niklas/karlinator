@@ -1,19 +1,30 @@
-/*
-This is as basic as it gets.  If you can't get this running, 
-something is not quite right.
-*/
-
 import wordcram.*;
+import java.util.List;
+import java.util.ArrayList;
 
-size(700, 400);
+size(1920, 1080);
 background(255);
 
-// Each Word object has its word, and its weight.  You can use whatever
-// numbers you like for their weights, and they can be in any order.
-Word[] wordArray = new Word[] {
-    new Word("Hello", 100),
-    new Word("WordCram", 60)
-  };
+BufferedReader reader;
+String line;
+
+reader = createReader("var/word_count.txt");
+List<Word> wordList = new ArrayList<Word>();
+
+try {
+  while ((line = reader.readLine()) != null) {
+    String[] pieces = split(line, ':');
+    String w = pieces[0];
+    int c = int(pieces[1]);
+    wordList.add( new Word(w, c) );
+  }
+} catch (IOException e) {
+  e.printStackTrace();
+  line = null;
+}
+
+Word[] wordArray = new Word[ wordList.size() ];
+wordList.toArray( wordArray );
 
 // Pass in the sketch (the variable "this"), so WordCram can draw to it.
 WordCram wordcram = new WordCram(this)
