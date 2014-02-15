@@ -1,10 +1,13 @@
 Actions.load_action 'texts'
 
 require 'marky_markov'
-markov = MarkyMarkov::TemporaryDictionary.new 2
+markov = MarkyMarkov::Dictionary.new('var/dictionary', 2)
 
-@texts.each do |text|
-  markov.parse_string text
+if markov.dictionary.empty?
+  @texts.each do |text|
+    markov.parse_string text
+  end
+  markov.save_dictionary!
 end
 
 def ask(question='')
