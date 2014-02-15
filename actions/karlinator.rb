@@ -3,8 +3,8 @@ Actions.load_action 'texts'
 require 'marky_markov'
 markov = MarkyMarkov::Dictionary.new('var/dictionary', 2)
 
-if markov.dictionary.empty?
-  @texts.each do |text|
+if markov.dictionary.empty? || !@files.empty?
+  texts do |text|
     markov.parse_string text
   end
   markov.save_dictionary!

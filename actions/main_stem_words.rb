@@ -9,7 +9,7 @@ stemmer = Lingua::Stemmer.new(:language => "de", :encoding => "UTF-8")
 
 stop_words += stop_words.map { |w| stemmer.stem(w) }
 
-@texts.each do |text|
+texts do |text|
   text.scan(/\p{Letter}+/i) do |word|
     clean = stemmer.stem( word.strip.downcase )
     if clean.length > 2 and !stop_words.include?(clean)

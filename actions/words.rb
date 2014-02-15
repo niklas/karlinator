@@ -2,7 +2,7 @@ Actions.load_action 'texts'
 
 word_count = Hash.new { |h,k| h[k] = 0 }
 
-@texts.each do |text|
+texts do |text|
   text.scan(/\p{Letter}+/i) do |word|
     if word.length > 2
       word_count[word] += 1

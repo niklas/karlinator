@@ -5,7 +5,7 @@ word_count = Hash.new { |h,k| h[k] = 0 }
 
 stemmer = Lingua::Stemmer.new(:language => "de", :encoding => "UTF-8")
 
-@texts.each do |text|
+texts do |text|
   text.scan(/\p{Letter}+/i) do |word|
     if word.length > 2
       word_count[stemmer.stem(word)] += 1
