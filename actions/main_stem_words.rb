@@ -21,7 +21,7 @@ end
 sorted = word_count.sort_by { |word, count| count }
 
 write 'word_count' do |f|
-  sorted.last(1000).reverse.each do |word, count|
+  sorted.last(3333).reverse.each do |word, count|
     if count > 1
       f.word word, count
     end
