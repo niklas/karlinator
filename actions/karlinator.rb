@@ -24,6 +24,9 @@ while line = ask do
   when 'debug'
     require 'pry'
     binding.pry
+  when 'web'
+    $markov = markov
+    Actions.load_action 'karlinator_web'
   when /\A\d+\z/
     puts markov.generate_n_sentences line.to_i
   else
