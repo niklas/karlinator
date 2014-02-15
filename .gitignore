@@ -20,3 +20,4 @@ vendor/processing*
 processing/*/build-tmp
 var/word_count.txt
 var/dictionary.mmd
+archive/
