@@ -34,6 +34,7 @@ WordCram wordcram = new WordCram(this)
   .fromWords(wordArray)
 //.angledAt(radians(30), radians(30), radians(-60))
   .withFont(font)
+  .withColors(#8C3D26, #7F3822, #FF7045, #401C11, #E5653E) // reddish
 
   ;
 
