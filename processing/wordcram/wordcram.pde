@@ -1,8 +1,9 @@
 import wordcram.*;
 import java.util.List;
 import java.util.ArrayList;
+import processing.pdf.*;
 
-size(1920, 1080);
+size(1920, 1080, PDF, "wordcram.pdf");
 background(255);
 PFont font = createFont("Georgia Italic", 1);
 
@@ -35,6 +36,7 @@ WordCram wordcram = new WordCram(this)
 //.angledAt(radians(30), radians(30), radians(-60))
   .withFont(font)
   .withColors(#8C3D26, #7F3822, #FF7045, #401C11, #E5653E) // reddish
+  .sizedByWeight(10,90)
 
   ;
 
